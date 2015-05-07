@@ -1,0 +1,10 @@
+Create a program:
+1. Define two variables: x = 10, y = 20;
+2. print the value of x and y;
+
+Extra bonus:
+1. Create a program that ask the user to input two variables,
+2. print out the two variables value;
+3. swap these two variables;
+4. print out the swap results;
+
