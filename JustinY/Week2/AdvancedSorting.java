@@ -14,70 +14,41 @@ public class AdvancedSorting {
     
     public static void main(String[] args) {
        
-        String a;
-        String b;
-        String c;
-        int k;
-        int j;
-        int m;
-        int o;
-        int y;
-        int x;
+        String inputnumber;
+        String Squantofnumbers;
+        int loopvar;
+        int temp;
+        int sortvar;
+        
         Scanner user_input = new Scanner(System.in);
+        
         System.out.println("State amount of numbers to be sorted");
-        String i;
-        i = user_input.next();
-
-        int ii = Integer.parseInt(i);
-        k=ii;
+        Squantofnumbers = user_input.next();
+        int quantofnumbers = Integer.parseInt(Squantofnumbers);
         int numbers[];
-        numbers = new int [k];
- 
-        System.out.println("State 1st number");
-        a = user_input.next();
-        numbers[0] = Integer.parseInt(a);
-        
-        
-        System.out.println("State 2nd number");
-        b = user_input.next();
-        numbers[1] = Integer.parseInt(b);
-        
-        
-        System.out.println("State 3rd number");
-        c = user_input.next();
-        numbers[2] = Integer.parseInt(c);
-        
-        for (j=3; j<k;j++){
-            m=j+1;
-            o=j;
-            String n;
-            System.out.println("State "+m+ "th number");
-            n = user_input.next();
-            numbers[o] = Integer.parseInt(n); 
+        numbers = new int [quantofnumbers];
+
+        for (loopvar=0; loopvar<quantofnumbers;loopvar++){
+            System.out.println("State number " + (loopvar+1));
+            inputnumber = user_input.next();
+            numbers[loopvar] = Integer.parseInt(inputnumber); 
         }
-        int f;
-        int p = k-1;
         System.out.println("Original sequence");
-        for(f=0; f<=p;f++){
-            int g=numbers[f];
-            System.out.println(g);
+        for(loopvar=0; loopvar<quantofnumbers;loopvar++){
+            System.out.println(numbers[loopvar]);
         }  
-        int q=k-1;
-        for(y=0; y<ii; y++){    
-            for(x=0;x<q;x++){
-                int z=x+1;
-                if (numbers[x]>numbers[z]){
-                    int temp=numbers[x];
-                    numbers[x]=numbers[z];
-                    numbers[z]=temp;
+        for(loopvar=0; loopvar<quantofnumbers; loopvar++){    
+            for(sortvar=0;sortvar<quantofnumbers-1;sortvar++){
+                if (numbers[sortvar]>numbers[sortvar+1]){
+                    temp=numbers[sortvar];
+                    numbers[sortvar]=numbers[sortvar+1];
+                    numbers[sortvar+1]=temp;
                 }  
             }    
         }
-
         System.out.println("Numbers sequenced in order: ");
-        for(f=0; f<=p;f++){
-            int g=numbers[f];
-            System.out.println(g);
+        for(loopvar=0; loopvar<=quantofnumbers-1;loopvar++){
+            System.out.println(numbers[loopvar]);
         }        
     }
 }
