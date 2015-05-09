@@ -1,3 +1,12 @@
-Given an array and a value, remove all instances of that value in place and return the new length.
+Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word in the string.
 
-The order of elements can be changed. It doesn't matter what you leave beyond the new length. 
+If the last word does not exist, return 0.
+Note: A word is defined as a character sequence consists of non-space characters only.
+For example,
+Given s = "Hello World",
+return 5. 
+
+Bonus:
+1. Given an array and a value, remove all instances of that value in place and return the new length.
+The order of elements can be changed. It doesn't matter what you leave beyond the new length.
+For example: the array is [ 2 4 6 2 8], the value is 2, the output should be [4 6 8] the new array length is 3
