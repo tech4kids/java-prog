@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package advanced.sorting;
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 /**
  *
@@ -14,29 +16,28 @@ public class AdvancedSorting {
     
     public static void main(String[] args) {
        
-        String inputnumber;
         String Squantofnumbers;
         int loopvar;
         int temp;
         int sortvar;
+        int loop;
+        int quantofnumbers;
+        int rand;
         
         Scanner user_input = new Scanner(System.in);
+        Random randint = new Random();
         
         System.out.println("State amount of numbers to be sorted");
         Squantofnumbers = user_input.next();
-        int quantofnumbers = Integer.parseInt(Squantofnumbers);
+        quantofnumbers = Integer.parseInt(Squantofnumbers);
         int numbers[];
         numbers = new int [quantofnumbers];
-
-        for (loopvar=0; loopvar<quantofnumbers;loopvar++){
-            System.out.println("State number " + (loopvar+1));
-            inputnumber = user_input.next();
-            numbers[loopvar] = Integer.parseInt(inputnumber); 
+        for(loop=1;loop<=quantofnumbers; loop++ ){
+            rand = randint.nextInt(21);
+            numbers[loop-1]=rand;
         }
-        System.out.println("Original sequence");
-        for(loopvar=0; loopvar<quantofnumbers;loopvar++){
-            System.out.println(numbers[loopvar]);
-        }  
+        System.out.println ("Numbers are: " + Arrays.toString(numbers));
+
         for(loopvar=0; loopvar<quantofnumbers; loopvar++){    
             for(sortvar=0;sortvar<quantofnumbers-1;sortvar++){
                 if (numbers[sortvar]>numbers[sortvar+1]){
@@ -46,9 +47,6 @@ public class AdvancedSorting {
                 }  
             }    
         }
-        System.out.println("Numbers sequenced in order: ");
-        for(loopvar=0; loopvar<=quantofnumbers-1;loopvar++){
-            System.out.println(numbers[loopvar]);
-        }        
+        System.out.println("Numbers sorted: " + Arrays.toString(numbers));    
     }
 }
