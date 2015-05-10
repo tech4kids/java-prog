@@ -1,7 +1,8 @@
-
+import java.util.Scanner;
 /**
  * BubbleSort v 1.0
  */
+
 public class BubbleSort1{
     public static void main(String []args) {
     int n, c, d, swap;
