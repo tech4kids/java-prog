@@ -15,7 +15,6 @@ class primefinder {
 	while( number < top) {
 		number = number + 2;
 		long e = 1;
-		long zzz = 0;
 		long number1 = number;
 		double a = number;
 		while( e < number) {
@@ -26,8 +25,7 @@ class primefinder {
 				break;
 				}
 			if( e > Math.sqrt(a)) {
-				System.out.print(number1);
-				System.out.print(zzz);
+				System.out.println(number1);
 				break;
 				}
 			}
