@@ -1,0 +1,36 @@
+import java.util.*;
+class primefinder {
+	public static void main(String[] args) {
+	input();
+	}
+
+	public static void input() {
+
+	Scanner console = new Scanner(System.in);
+
+        System.out.print("This number for prime finding: ");
+        long number = console.nextLong();
+	number = number - 2;
+	long top = number + 1000;
+	while( number < top) {
+		number = number + 2;
+		long e = 1;
+		long zzz = 0;
+		long number1 = number;
+		double a = number;
+		while( e < number) {
+			e = e + 2;
+			long result = number1 / e;
+			long result2 = result * e;
+			if( result2 == number1) {
+				break;
+				}
+			if( e > Math.sqrt(a)) {
+				System.out.print(number1);
+				System.out.print(zzz);
+				break;
+				}
+			}
+		}
+	}
+}
