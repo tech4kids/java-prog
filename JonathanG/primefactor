@@ -1,0 +1,47 @@
+import java.util.*;
+class primefactor {
+	public static void main(String[] args) {
+	input();
+	}
+
+	public static void input() {
+
+	Scanner console = new Scanner(System.in);
+
+        System.out.print("This number for prime factor: ");
+        long number = console.nextLong();
+	long e = 2;
+	long zzz = 0;
+	long result = number / e;
+	long result02 = result * e;
+	if( result02 == number) {
+		System.out.print(e);
+		System.out.print(zzz);
+		number = result;
+		}
+	
+	long d = 1;
+	double f = number;
+	long number3 = number;
+
+	while( d < number) {
+		d = d + 1;
+		long result3 = number3 / d;
+		long result4 = result3 * d;
+		
+		if( result4 == number3) {
+			System.out.print(d);
+			System.out.print(zzz);
+			number3 = number3 / d;
+			d = d - 1;
+		if( number3 == 1) {
+			break;
+				}
+			}
+		if( d > Math.sqrt(f)) {
+			System.out.print(number3);
+			break;
+			}
+		}
+	}
+}
