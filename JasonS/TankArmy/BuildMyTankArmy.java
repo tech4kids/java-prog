@@ -1,12 +1,14 @@
 public class BuildMyTankArmy {
 	public static void main(String[] args) {
 		Tank Tank1 = new Tank(1, 1, 1, 1, 1, 1);
-		System.out.println("The Tank's Speed is " + Tank1.getSpeed()
-				+ " kilometers per hour." + " The Tank's Reload Speed is "
-				+ Tank1.getReloadspeed() + " seconds."
-				+ " The Tank's Damage is " + Tank1.getDamage() + " hp per hit."
-				+ " The Tank's Armor is " + Tank1.getArmor() + "."
-				+ " The Tank's Penetration is " + Tank1.getPenetration() + "."
-				+ " The Tank's Health is " + Tank1.getHealth() + "hp.");
+		String newLine = System.getProperty("line.separator");
+		System.out.println("The tank moves at " + Tank1.getSpeed()
+				+ " kilometers per hour." + newLine + "The tank takes "
+				+ Tank1.getReloadspeed() + " seconds to reload." + newLine
+				+ "The tank deals " + Tank1.getDamage() + " damage per hit."
+				+ newLine + "The tank's armor is " + Tank1.getArmor() + "."
+				+ newLine + "The tank's armor penetration is "
+				+ Tank1.getPenetration() + "." + newLine + "The tank's has "
+				+ Tank1.getHealth() + " health.");
 	}
 }
