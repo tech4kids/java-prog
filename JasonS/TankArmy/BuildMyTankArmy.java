@@ -1,7 +1,7 @@
 public class BuildMyTankArmy {
 	public static void main(String[] args) {
-		Tank Tank1 = new Tank(1, 1, 1, 1, 1, 1);
 		String newLine = System.getProperty("line.separator");
+		Tank Tank1 = new Tank(1, 1, 1, 1, 1, 1);
 		System.out.println("The tank moves at " + Tank1.getSpeed()
 				+ " kilometers per hour." + newLine + "The tank takes "
 				+ Tank1.getReloadspeed() + " seconds to reload." + newLine
@@ -39,7 +39,10 @@ public class BuildMyTankArmy {
 		int tank2Cost = tank2speedCost + tank2reloadspeedCost + tank2damageCost
 				+ tank2armorCost + tank2penetrationCost + tank2healthCost;
 		int totalCost = tank1Cost + tank2Cost;
-		
-		System.out.println("The cost of tank 1 is "+ tank1Cost + " dollars." + newLine + "The cost of tank 2 is " + tank2Cost + " dollars." + newLine + "The total cost of both tanks is " + totalCost + " dollars.");
+
+		System.out.println("The cost of tank 1 is " + tank1Cost + " dollars."
+				+ newLine + "The cost of tank 2 is " + tank2Cost + " dollars."
+				+ newLine + "The total cost of both tanks is " + totalCost
+				+ " dollars.");
 	}
 }
