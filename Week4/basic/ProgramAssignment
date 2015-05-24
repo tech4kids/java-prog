@@ -1,0 +1,19 @@
+Create a class called circle contains:
+1. Two private instance variables: 
+	radius (of type double)
+	color (of type String)
+	default radius is 1.0, color is "red"
+2. Two constructors, one is default Circle(), one is Circle(double r, String color)
+3. Two public methods:
+	getRadius()
+	getArea()
+	getColor()
+
+Create a PrintCircle program:
+1. create an instance of that circle with default value
+2. create an instacce of circle with the value you would like to assign it:
+3. print Circle radius and Circle area, and circle color.
+
+Bonus:
+1. In TestCircle, can you access the instance variable radius directly? try to use public varialble, then try again.
+2. Add two public methods called setters for changing the radius and color
