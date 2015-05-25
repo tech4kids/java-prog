@@ -1,7 +1,30 @@
+import java.util.Scanner;
+
 public class BuildMyTankArmy {
 	public static void main(String[] args) {
+		int a;
+		int b;
+		int c;
+		int d;
+		int e;
+		int f;
+
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter the tank's speed (in kilometers per hour):");
+		a = in.nextInt();
+		System.out.println("Enter the tank's reload speed (in seconds):");
+		b = in.nextInt();
+		System.out.println("Enter the amount of damage that the tank deals in one hit:");
+		c = in.nextInt();
+		System.out.println("Enter the amount of armor that the tank has:");
+		d = in.nextInt();
+		System.out.println("Enter the tank's armor penetration:");
+		e = in.nextInt();
+		System.out.println("Enter the amount of health that the tank has:");
+		f = in.nextInt();
+
 		String newLine = System.getProperty("line.separator");
-		Tank Tank1 = new Tank(1, 1, 1, 1, 1, 1);
+		Tank Tank1 = new Tank(a, b, c, d, e, f);
 		System.out.println("The tank moves at " + Tank1.getSpeed()
 				+ " kilometers per hour." + newLine + "The tank takes "
 				+ Tank1.getReloadspeed() + " seconds to reload." + newLine
@@ -9,7 +32,7 @@ public class BuildMyTankArmy {
 				+ newLine + "The tank's armor is " + Tank1.getArmor() + "."
 				+ newLine + "The tank's armor penetration is "
 				+ Tank1.getPenetration() + "." + newLine + "The tank has "
-				+ Tank1.getHealth() + " health." + newLine);
+				+ Tank1.getHealth() + " hp." + newLine);
 
 		int tank1speedCost = Tank1.getSpeed();
 		int tank1reloadspeedCost = Tank1.getReloadspeed();
@@ -19,30 +42,7 @@ public class BuildMyTankArmy {
 		int tank1healthCost = Tank1.getHealth();
 		int tank1Cost = tank1speedCost + tank1reloadspeedCost + tank1damageCost
 				+ tank1armorCost + tank1penetrationCost + tank1healthCost;
-
-		Tank Tank2 = new Tank(12, 13, 14, 15, 16, 17);
-		System.out.println("The tank moves at " + Tank2.getSpeed()
-				+ " kilometers per hour." + newLine + "The tank takes "
-				+ Tank2.getReloadspeed() + " seconds to reload." + newLine
-				+ "The tank deals " + Tank2.getDamage() + " damage per hit."
-				+ newLine + "The tank's armor is " + Tank2.getArmor() + "."
-				+ newLine + "The tank's armor penetration is "
-				+ Tank2.getPenetration() + "." + newLine + "The tank has "
-				+ Tank2.getHealth() + " health." + newLine);
-
-		int tank2speedCost = Tank2.getSpeed();
-		int tank2reloadspeedCost = Tank2.getReloadspeed();
-		int tank2damageCost = Tank2.getDamage();
-		int tank2armorCost = Tank2.getArmor();
-		int tank2penetrationCost = Tank2.getPenetration();
-		int tank2healthCost = Tank2.getHealth();
-		int tank2Cost = tank2speedCost + tank2reloadspeedCost + tank2damageCost
-				+ tank2armorCost + tank2penetrationCost + tank2healthCost;
-		int totalCost = tank1Cost + tank2Cost;
-
-		System.out.println("The cost of tank 1 is " + tank1Cost + " dollars."
-				+ newLine + "The cost of tank 2 is " + tank2Cost + " dollars."
-				+ newLine + "The total cost of both tanks is " + totalCost
-				+ " dollars.");
+		
+		System.out.println("The tank costs " + tank1Cost + " dollars.");		
 	}
 }
