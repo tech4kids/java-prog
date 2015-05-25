@@ -10,20 +10,26 @@ public class BuildMyTankArmy {
 		int d;
 		int e;
 		int f;
-		
+
 		String newLine = System.getProperty("line.separator");
 		in = new Scanner(System.in);
 		System.out.println("Enter the tank's speed (in kilometers per hour):");
 		a = in.nextInt();
-		System.out.println(newLine + "Enter the tank's reload speed (in shells per min):");
+		System.out.println(newLine
+				+ "Enter the tank's reload speed (in shells per min):");
 		b = in.nextInt();
-		System.out.println(newLine + "Enter the amount of damage that the tank deals in one hit:");
+		System.out.println(newLine
+				+ "Enter the amount of damage that the tank deals in one hit:");
 		c = in.nextInt();
-		System.out.println(newLine + "Enter the amount of armor that the tank has (in milimeter(s)):");
+		System.out
+				.println(newLine
+						+ "Enter the amount of armor that the tank has (in milimeter(s)):");
 		d = in.nextInt();
-		System.out.println(newLine + "Enter the tank's armor penetration (in milimeters()):");
+		System.out.println(newLine
+				+ "Enter the tank's armor penetration (in milimeters()):");
 		e = in.nextInt();
-		System.out.println(newLine + "Enter the amount of health that the tank has:");
+		System.out.println(newLine
+				+ "Enter the amount of health that the tank has:");
 		f = in.nextInt();
 
 		Tank Tank1 = new Tank(a, b, c, d, e, f);
@@ -45,6 +51,16 @@ public class BuildMyTankArmy {
 		int tank1Cost = tank1speedCost + tank1reloadspeedCost + tank1damageCost
 				+ tank1armorCost + tank1penetrationCost + tank1healthCost;
 
-		System.out.println("The tank costs " + tank1Cost + " dollars.");
+		while (tank1Cost > 104000) {
+			int overBudget = tank1Cost - 104000;
+			System.out.println("Too expensive. It costs " + tank1Cost
+					+ " which is " + overBudget + " dollars too expensive.");
+			break;
+		}
+
+		while (tank1Cost <= 104000) {
+			System.out.println("The tank costs " + tank1Cost + " dollars.");
+			break;
+		}
 	}
 }
