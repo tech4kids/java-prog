@@ -23,4 +23,8 @@ public class Circle {
 	{
 		return color;
 	}
+	public double getArea()
+	{
+		return Math.PI * radius * radius;
+	}
 }
