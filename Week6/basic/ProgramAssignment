@@ -7,6 +7,6 @@ Please enter the upper bound: 10000
 ......
 9967
 9973
-[1230 primes found (12.30%)]
+[1229 primes found (12.29%)]
 
 Hints: To check if a number n is a prime, the simplest way is try dividing n by 2 to √n.
