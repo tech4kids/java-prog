@@ -40,6 +40,6 @@ public class Ball {
     }
     @Override
     public String toString(){
-        return "The ball is at (" + x + ", " + y + ") of velocity (" + deltaX + ", " + deltaY + ").";
+        return "The ball is at (" + x + ", " + y + ") of velocity (" + String.format("%.2f", deltaX) + ", " + String.format("%.2f", deltaY) + ").";
     }
 }
