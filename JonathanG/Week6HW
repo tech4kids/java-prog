@@ -12,6 +12,7 @@ class primefinder {
         long top = console.nextLong();
         System.out.println(2)
 	long number = 1;
+	int f = 0;
 	while( number < top) {
 		number = number + 2;
 		long e = 1;
@@ -26,9 +27,11 @@ class primefinder {
 				}
 			if( e > Math.sqrt(a)) {
 				System.out.println(number1);
+				f = f +1
 				break;
 				}
 			}
 		}
+		System.out.println("Percentage:" + f/top);
 	}
 }
