@@ -1,0 +1,79 @@
+import java.util.*;
+class listsort {
+	public static void main(String[] args) {
+	input();
+	}
+	
+	public static void input() {
+
+		Scanner console = new Scanner(System.in);
+
+		System.out.print("This is the first number: ");
+		int a = console.nextInt();
+		System.out.print("This is the second number: ");
+		int b = console.nextInt();
+		System.out.print("This is the third number: ");
+		int c = console.nextInt();
+		System.out.print("This is the fourth number: ");
+		int d = console.nextInt();
+		System.out.print("This is the fifth number: ");
+		int e = console.nextInt();
+		int f = 1;
+	
+		if( a > b) {
+			f = a;
+			a = b;
+			b = f;
+		}
+		if( a > c) {
+			f = a;
+			a = c;
+			c = f;
+		}	
+		if( a > d) {
+			f = a;
+			a = d;
+			d = f;
+		}	
+		if( a > e) {
+			f = a;
+			a = e;
+			e = f;
+		}	
+		if( b > c) {
+			f = b;
+			b = c;
+			c = f;
+		}
+		if( b > d) {
+			f = b;
+			b = d;
+			d = f;
+		}
+		if( b > e) {
+			f = b;
+			b = e;
+			e = f;
+		}
+		if( c > d) {
+			f = c;
+			c = d;
+			d = f;
+		}	
+		if( c > e) {
+			f = c;
+			c = e;
+			e = f;
+		}		
+		if( d > e) {
+			f = d;
+			d = e;
+			e = f;
+		}
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(d);
+		System.out.println(e);
+	}
+}
