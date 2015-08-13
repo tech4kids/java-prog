@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingBottom="16dp"
+              android:paddingLeft="16dp"
+              android:paddingRight="16dp"
+              android:paddingTop="16dp"
+              tools:context=".MainActivity"
+              android:orientation="vertical">
+
+    <TextView
+            android:id="@+id/a_derp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bench something" />
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <Button
+                android:id="@+id/botton1"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="bench 1"
+                android:onClick="submitOrder1"
+                android:textSize="20sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+                android:id="@+id/quantity_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+                android:id="@+id/buutton1"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="unbench 1"
+                android:onClick="submitOrder"
+                android:textSize="20sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/asdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0$"
+        android:layout_gravity="center_horizontal" />
+    <Button
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:text="price of the benchings"
+        android:onClick="theNewWorldOrder"/>
+
+
+</LinearLayout>
