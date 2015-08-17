@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void nextImage(){
         image1.setImageResource(imageArray[currentIndex]);
-        Animation rotateimage = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_top);
+        Animation rotateimage = AnimationUtils.loadAnimation(this, R.anim.custom_anim);
         image1.startAnimation(rotateimage);
         currentIndex++;
         new Handler().postDelayed(new Runnable() {
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void previousImage(){
         image1.setImageResource(imageArray[currentIndex]);
-        Animation rotateimage = AnimationUtils.loadAnimation(this, R.anim.abc_slide_in_top);
+        Animation rotateimage = AnimationUtils.loadAnimation(this, R.anim.custom_anim);
         image1.startAnimation(rotateimage);
         currentIndex--;
         new Handler().postDelayed(new Runnable() {

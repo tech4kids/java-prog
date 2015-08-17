@@ -3,10 +3,13 @@ package com.example.lumpy_000.button;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,7 +19,14 @@ import java.util.TimerTask;
 import android.widget.ImageView;
 
 
-public class Timer1 extends ActionBarActivity {
+public class Timer1 extends AppCompatActivity {
+    private ImageView image1;
+    private int[] imageArray;
+    private int currentIndex;
+    private int startIndex;
+    private int endIndex;
+
+
     Timer timer;
     TimerTask timerTask;
     final Handler handler = new Handler();
@@ -51,6 +61,43 @@ public class Timer1 extends ActionBarActivity {
             timer.schedule(timerTask, 0, 1000);
         }
     }
+    public void nextImage(){
+        image1.setImageResource(imageArray[currentIndex]);
+        Animation rotateimage = AnimationUtils.loadAnimation(this, R.anim.custom_anim);
+        image1.startAnimation(rotateimage);
+        currentIndex++;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(currentIndex>endIndex){
+                    currentIndex--;
+                    previousImage();
+                }else{
+                    nextImage();
+                }
+
+            }
+        },50); // here 1000(1 second) interval to change from current  to next image
+
+    }
+    public void previousImage() {
+        image1.setImageResource(imageArray[currentIndex]);
+        Animation rotateimage = AnimationUtils.loadAnimation(this, R.anim.custom_anim);
+        image1.startAnimation(rotateimage);
+        currentIndex--;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (currentIndex < startIndex) {
+                    currentIndex++;
+                    nextImage();
+                } else {
+                    previousImage(); // here 1000(1 second) interval to change from current  to previous image
+                }
+            }
+        }, 25);
+    }
+
     public void startTimer(){
         if (timer==null) {
             timer = new Timer();
@@ -86,9 +133,26 @@ public class Timer1 extends ActionBarActivity {
         if (event.getAction() == MotionEvent.ACTION_UP) {
             synchronized (this) {
                 dews++;
+
             }
+            currentIndex = 0;
+//            nextImage();
+            display(dews);
+            image1.setImageResource(imageArray[currentIndex]);
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    currentIndex = 1;
+                    image1.setImageResource(imageArray[currentIndex]);
+                }
+            },25);
+
+//            for(int i = 0; i < 2000;i++){
+//            }
+//            nextImage();
         }
-        display(dews);
+
         return super.onTouchEvent(event);
 
     }
@@ -98,7 +162,14 @@ public class Timer1 extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         startTimer();
-
+        image1 = (ImageView)findViewById(R.id.imageView1);
+        imageArray = new int[2];
+        imageArray[0] = R.drawable.deal;
+        imageArray[1] = R.drawable.dews;
+        startIndex = 0;
+        endIndex = 1;
+        currentIndex = 1;
+        image1.setImageResource(imageArray[currentIndex]);
     }
 
     @Override
