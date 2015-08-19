@@ -1,5 +1,8 @@
 package com.example.lumpy_000.button;
 
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -20,12 +23,14 @@ import android.widget.ImageView;
 
 
 public class Timer1 extends AppCompatActivity {
+    SoundPool sp = null;
     private ImageView image1;
     private int[] imageArray;
     private int currentIndex;
     private int startIndex;
     private int endIndex;
-
+    private boolean mLoaded = false;
+    private int soundIds[] = new int[1];
 
     Timer timer;
     TimerTask timerTask;
@@ -77,7 +82,7 @@ public class Timer1 extends AppCompatActivity {
                 }
 
             }
-        },50); // here 1000(1 second) interval to change from current  to next image
+        },25); // here 1000(1 second) interval to change from current  to next image
 
     }
     public void previousImage() {
@@ -135,6 +140,9 @@ public class Timer1 extends AppCompatActivity {
                 dews++;
 
             }
+
+            if (mLoaded)
+                sp.play(soundIds[0], 20.0f, 20.0f, 1, 0, 1);
             currentIndex = 0;
 //            nextImage();
             display(dews);
@@ -146,7 +154,7 @@ public class Timer1 extends AppCompatActivity {
                     currentIndex = 1;
                     image1.setImageResource(imageArray[currentIndex]);
                 }
-            },25);
+            },50);
 
 //            for(int i = 0; i < 2000;i++){
 //            }
@@ -163,6 +171,16 @@ public class Timer1 extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         startTimer();
         image1 = (ImageView)findViewById(R.id.imageView1);
+        SoundPool.Builder builder = new SoundPool.Builder();
+        sp = builder.build();
+        sp.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener(){
+
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+                mLoaded = true;
+            }
+        });
+        soundIds[0] = sp.load(this, R.raw.yee, 1);
         imageArray = new int[2];
         imageArray[0] = R.drawable.deal;
         imageArray[1] = R.drawable.dews;
