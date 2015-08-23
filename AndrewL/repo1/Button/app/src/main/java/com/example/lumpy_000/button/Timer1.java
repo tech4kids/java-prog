@@ -30,14 +30,17 @@ public class Timer1 extends AppCompatActivity {
     private int startIndex;
     private int endIndex;
     private boolean mLoaded = false;
-    private int soundIds[] = new int[1];
+    private int soundIds[] = new int[2];
 
     Timer timer;
     TimerTask timerTask;
     final Handler handler = new Handler();
-    int dews = 0;
-    int newdews = 0;
+    double dews = 0;
+    double newdews = 0;
     int clicks = 1;
+    double shrekdews = 50;
+    double shrikdews = 200;
+    double sharkdews = 600;
     public void initializeTimerTask() {
         timerTask = new TimerTask() {
             public void run() {
@@ -45,7 +48,6 @@ public class Timer1 extends AppCompatActivity {
                     public void run() {
                         synchronized (this) {
                             dews = dews + newdews;
-                            dews += 1;
                         }
                         display(dews);
 
@@ -112,8 +114,10 @@ public class Timer1 extends AppCompatActivity {
         }
     }
     public void addbackground(View view){
-        newdews++;
-        display(dews);
+        if (dews >= 100) {
+            newdews++;
+            display(dews);
+        }
     }
     public void addclick(View view){
         clicks++;
@@ -123,14 +127,56 @@ public class Timer1 extends AppCompatActivity {
         dews = dews + clicks;
         display(dews);
     }
-    private void display(int number) {
+    private void display(double number) {
         TextView quantityTextView = (TextView) findViewById(
                 R.id.quantity_text_view);
-        quantityTextView.setText("" + number);
+        quantityTextView.setText("" + "Score: " + number);
     }
-    public void dewclicks(View view){
-        dews++;
-        display(dews);
+    public void addDewclicks(View view){
+        if (dews >= shrekdews) {
+            newdews++;
+            dews = dews - shrekdews;
+            if (mLoaded)
+                sp.play(soundIds[1], 20.0f, 20.0f, 1, 0, 1);
+            shrekdews = shrekdews * 1.25;
+            shrekdews = Math.round(shrekdews);
+            dews = Math.round(dews);
+            Button quantityTextView = (Button) findViewById(
+                    R.id.urmum);
+            quantityTextView.setText("" + "Dew Clicker [" + shrekdews + "] +1 dps");
+            display(dews);
+        }
+    }
+    public void addDewclicker(View view){
+        if (dews >= sharkdews) {
+            newdews += 10;
+            dews = dews - sharkdews;
+            if (mLoaded)
+                sp.play(soundIds[1], 20.0f, 20.0f, 1, 0, 1);
+            sharkdews = sharkdews * 1.25;
+            sharkdews = Math.round(sharkdews);
+            dews = Math.round(dews);
+            Button quantityTextView = (Button) findViewById(
+                    R.id.urmum2);
+            quantityTextView.setText("" + "Dew Factory [" + sharkdews + "] +10 dps");
+            display(dews);
+        }
+
+    }
+    public void addDewcricks(View view){
+        if (dews >= shrikdews) {
+            newdews += 5;
+            dews = dews - shrikdews;
+            if (mLoaded)
+                sp.play(soundIds[1], 20.0f, 20.0f, 1, 0, 1);
+            shrikdews = shrikdews * 1.25;
+            shrikdews = Math.round(shrikdews);
+            dews = Math.round(dews);
+            Button quantityTextView = (Button) findViewById(
+                    R.id.urmum1);
+            quantityTextView.setText("" + "Dew Farm [" + shrikdews + "] +5 dps");
+            display(dews);
+        }
     }
 
     @Override
@@ -169,6 +215,7 @@ public class Timer1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         startTimer();
         image1 = (ImageView)findViewById(R.id.imageView1);
         SoundPool.Builder builder = new SoundPool.Builder();
@@ -181,6 +228,7 @@ public class Timer1 extends AppCompatActivity {
             }
         });
         soundIds[0] = sp.load(this, R.raw.yee, 1);
+        soundIds[1] = sp.load(this, R.raw.shot, 2);
         imageArray = new int[2];
         imageArray[0] = R.drawable.deal;
         imageArray[1] = R.drawable.dews;
